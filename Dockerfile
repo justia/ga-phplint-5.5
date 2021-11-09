@@ -11,7 +11,7 @@ LABEL homepage="https://github.com/justia/ga-phplint-5.5"
 
 RUN apt-get update && apt-get -y install zip unzip && rm -rf /var/lib/apt/lists/*
 
-RUN curl -sS https://getcomposer.org/installer | php -- \
+RUN curl -sS -k https://getcomposer.org/installer | php -- \
 --install-dir=/usr/bin --filename=composer && chmod +x /usr/bin/composer
 
 RUN mkdir /phplint && cd /phplint && composer require overtrue/phplint && ln -s /phplint/vendor/bin/phplint /usr/local/bin/phplint
